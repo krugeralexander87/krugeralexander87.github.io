@@ -1,0 +1,354 @@
+/* Design language from noahtrapolino.com (Manrope headings, Poppins Light body,
+   uppercase spaced nav, gallery whitespace) — warmed up with an ivory ground,
+   an oxblood accent, a generative line hero, and editorial section numbers. */
+
+/* Palette drawn from Che Lovelace, "CLR Dub" (2020): umber browns, cream-gold
+   ground, and carnival accents — burnt red, teal, emerald, gold, navy. */
+/* Trapolino colour scheme throughout: near-white, black, light gray.
+   The Lovelace pigments live only in the header band (literal hexes there). */
+:root {
+  --ink: #141414;
+  --paper: #fafafa;
+  --line: #dcdcdc;
+  --muted: #6b6b6b;
+  --max: 1160px;
+  --pad: 6vw;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: "Poppins", Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  color: var(--ink);
+  background: var(--paper);
+  line-height: 1.8;
+  font-size: 16px;
+}
+
+h1, h2, h3 {
+  font-family: "Manrope", Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+a { color: var(--ink); text-decoration: none; transition: color 0.2s ease, border-color 0.2s ease, opacity 0.2s ease; }
+
+main a, .site-footer a { border-bottom: 1px solid var(--line); }
+main a:hover, .site-footer a:hover { border-bottom-color: var(--ink); }
+
+/* ============ Header ============ */
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px 32px;
+  padding: 28px var(--pad);
+  position: relative;
+  z-index: 2;
+}
+
+.site-title {
+  font-family: "Manrope", Helvetica, Arial, sans-serif;
+  font-weight: 600;
+  font-size: 1.4rem;
+  letter-spacing: -0.02em;
+}
+
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 34px;
+}
+
+.site-nav a {
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.site-nav a:hover { opacity: 0.5; }
+
+/* ============ Hero ============ */
+.hero {
+  padding-bottom: 12vh;
+}
+
+/* full-bleed painted band under the nav, /oil-style, name overlaid */
+.hero-banner {
+  position: relative;
+  width: 100%;
+  height: 54vh;
+  min-height: 320px;
+}
+
+.hero-banner-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  opacity: 0.55;              /* the fade */
+  filter: saturate(0.85);
+}
+
+.hero-name {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+}
+
+.hero-name-inner {
+  width: 100%;
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 var(--pad) 36px;
+}
+
+.hero-text {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 56px var(--pad) 0;
+}
+
+.hero-kicker {
+  font-size: 0.78rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 22px;
+}
+
+.hero h1 {
+  font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+  font-weight: 600;
+  line-height: 1.05;
+}
+
+/* name over the faded painting: ink reads cleanly */
+.hero-name h1 {
+  color: var(--ink);
+}
+
+.hero-sub {
+  margin-top: 28px;
+  font-size: 1.05rem;
+  max-width: 34em;
+  color: var(--muted);
+}
+
+.epigraph {
+  margin-top: 36px;
+  padding-left: 22px;
+  border-left: 2px solid var(--line);
+  max-width: 30em;
+}
+
+.epigraph p {
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+.epigraph cite {
+  display: block;
+  margin-top: 0.6em;
+  font-style: normal;
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.hero-cue {
+  display: inline-block;
+  margin-top: 40px;
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 4px;
+}
+
+/* ============ Sections ============ */
+.section {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 88px var(--pad);
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 40px;
+  border-top: 1px solid var(--line);
+  counter-increment: sec;
+}
+
+.section h2 {
+  font-size: 2rem;
+  align-self: start;
+}
+
+/* editorial section numbers: 01, 02, … */
+.section h2::before {
+  content: counter(sec, decimal-leading-zero);
+  display: block;
+  font-family: "Poppins", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 0.75rem;
+  letter-spacing: 0.22em;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+
+.section-body { max-width: 620px; }
+
+.section-body p + p { margin-top: 1.2em; }
+
+.section-body blockquote {
+  margin: 1.8em 0;
+  padding-left: 22px;
+  border-left: 2px solid var(--line);
+}
+
+.section-body blockquote + p { margin-top: 1.2em; }
+
+.section-body blockquote cite {
+  display: block;
+  margin-top: 0.6em;
+  font-style: normal;
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* ============ Portrait ============ */
+.portraits {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 var(--pad) 88px;
+  display: flex;
+  justify-content: center;
+}
+
+.portraits figure { max-width: 620px; }
+
+.portraits img {
+  width: 100%;
+  display: block;
+  filter: grayscale(100%);
+}
+
+.portraits figure.painting { max-width: 720px; }
+.portraits figure.painting img { filter: none; }   /* paintings keep their colour */
+.portraits figure.painting-tall { max-width: 480px; }   /* portrait-format canvases */
+
+.portraits figcaption {
+  margin-top: 10px;
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-align: center;
+}
+
+/* ============ Research topics ============ */
+.topics {
+  list-style: none;
+  margin-top: 2.4em;
+}
+
+.topics li {
+  padding: 1.6em 0 0;
+  border-top: 1px solid var(--line);
+  margin-top: 1.6em;
+}
+
+.topics h3 {
+  font-size: 1.15rem;
+  margin-bottom: 6px;
+}
+
+.topics p { color: var(--muted); }
+
+/* ============ Publications ============ */
+.bib { list-style: none; }
+
+.bib li {
+  padding-left: 1.6em;
+  text-indent: -1.6em;   /* hanging indent */
+}
+
+.bib li + li { margin-top: 1.2em; }
+
+.bib a {
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  white-space: nowrap;
+  border-bottom: none;
+}
+
+.aside {
+  margin-top: 2em;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* ============ Contact ============ */
+.contact-list { list-style: none; }
+
+.contact-list li {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 24px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.contact-list li:first-child { border-top: 1px solid var(--line); }
+
+.contact-list span {
+  width: 150px;
+  flex-shrink: 0;
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  line-height: 2.3;
+}
+
+/* ============ Footer ============ */
+.site-footer {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 48px var(--pad) 56px;
+  border-top: 1px solid var(--line);
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* ============ Mobile ============ */
+@media (max-width: 760px) {
+  .section {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding-top: 56px;
+    padding-bottom: 56px;
+  }
+  .hero { padding-bottom: 8vh; }
+  .hero-banner { height: 38vh; min-height: 240px; }
+  .hero-name-inner { padding-bottom: 24px; }
+  .hero-text { padding-top: 40px; }
+  .site-header { justify-content: center; text-align: center; }
+  .site-nav { justify-content: center; }
+}
