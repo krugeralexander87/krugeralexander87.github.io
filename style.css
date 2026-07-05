@@ -186,7 +186,6 @@ main a:hover, .site-footer a:hover { border-bottom-color: var(--ink); }
   grid-template-columns: 260px 1fr;
   gap: 40px;
   border-top: 1px solid var(--line);
-  counter-increment: sec;
 }
 
 .section h2 {
@@ -194,17 +193,6 @@ main a:hover, .site-footer a:hover { border-bottom-color: var(--ink); }
   align-self: start;
 }
 
-/* editorial section numbers: 01, 02, … */
-.section h2::before {
-  content: counter(sec, decimal-leading-zero);
-  display: block;
-  font-family: "Poppins", Helvetica, Arial, sans-serif;
-  font-weight: 400;
-  font-size: 0.75rem;
-  letter-spacing: 0.22em;
-  color: var(--muted);
-  margin-bottom: 10px;
-}
 
 .section-body { max-width: 620px; }
 
