@@ -217,15 +217,20 @@ main a:hover, .site-footer a:hover { border-bottom-color: var(--ink); }
 }
 
 /* ============ Portrait ============ */
+/* images sit on the same grid as the sections, aligned with the text column */
 .portraits {
   max-width: var(--max);
   margin: 0 auto;
   padding: 0 var(--pad) 88px;
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 40px;
 }
 
-.portraits figure { max-width: 620px; }
+.portraits figure {
+  grid-column: 2;
+  max-width: 620px;   /* same measure as the text column */
+}
 
 .portraits img {
   width: 100%;
@@ -233,7 +238,6 @@ main a:hover, .site-footer a:hover { border-bottom-color: var(--ink); }
   filter: grayscale(100%);
 }
 
-.portraits figure.painting { max-width: 720px; }
 .portraits figure.painting img { filter: none; }   /* paintings keep their colour */
 .portraits figure.painting-tall { max-width: 480px; }   /* portrait-format canvases */
 
@@ -243,7 +247,6 @@ main a:hover, .site-footer a:hover { border-bottom-color: var(--ink); }
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--muted);
-  text-align: center;
 }
 
 /* ============ Research topics ============ */
@@ -333,6 +336,11 @@ main a:hover, .site-footer a:hover { border-bottom-color: var(--ink); }
     padding-top: 56px;
     padding-bottom: 56px;
   }
+  .portraits {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .portraits figure { grid-column: 1; }
   .hero { padding-bottom: 8vh; }
   .hero-banner { height: 38vh; min-height: 240px; }
   .hero-name-inner { padding-bottom: 24px; }
