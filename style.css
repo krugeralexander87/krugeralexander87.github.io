@@ -111,9 +111,10 @@ main a:hover, .site-footer a:hover { border-bottom-color: var(--ink); }
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: 78% 25%;   /* keep James in frame when cropped */
   display: block;
-  opacity: 0.55;              /* the fade */
-  filter: saturate(0.85);
+  opacity: 0.5;               /* the fade */
+  filter: grayscale(100%);
 }
 
 .hero-name {
