@@ -31,12 +31,15 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=13">
+  <link rel="stylesheet" href="style.css?v=14">
 </head>
 <body>
 
   <header class="site-header">
     <a href="#" class="site-title" aria-label="Alexander Krüger">AK</a>
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
     <nav class="site-nav">
       <a href="#research">Research</a>
       <a href="#publications">Publications</a>
@@ -257,5 +260,21 @@
     <p>© 2026 Alexander Krüger</p>
   </footer>
 
+  <script>
+    (function () {
+      var header = document.querySelector('.site-header');
+      var toggle = document.querySelector('.nav-toggle');
+      toggle.addEventListener('click', function () {
+        var open = header.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', open);
+      });
+      document.querySelectorAll('.site-nav a').forEach(function (a) {
+        a.addEventListener('click', function () {
+          header.classList.remove('open');
+          toggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+    })();
+  </script>
 </body>
 </html>

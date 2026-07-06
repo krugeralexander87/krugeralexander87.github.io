@@ -74,6 +74,24 @@ main a:hover, .site-footer a:hover { border-bottom-color: var(--ink); }
 
 .site-nav a:hover { opacity: 0.5; }
 
+/* hamburger — hidden on desktop */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: 0;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--ink);
+  margin: 5px 0;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
 /* ============ Hero ============ */
 .hero {
   padding-bottom: 12vh;
@@ -345,6 +363,25 @@ main a:hover, .site-footer a:hover { border-bottom-color: var(--ink); }
   .hero-banner { height: 38vh; min-height: 240px; }
   .hero-name-inner { padding-bottom: 24px; }
   .hero-text { padding-top: 40px; }
-  .site-header { justify-content: center; text-align: center; }
-  .site-nav { justify-content: center; }
+  /* mobile: hamburger menu */
+  .site-header { position: relative; flex-wrap: nowrap; }
+  .nav-toggle { display: block; }
+  .site-nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    background: var(--paper);
+    border-bottom: 1px solid var(--line);
+    flex-direction: column;
+    align-items: center;
+    gap: 22px;
+    padding: 26px 0 30px;
+  }
+  .site-header.open .site-nav { display: flex; }
+  .site-header.open .nav-toggle span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .site-header.open .nav-toggle span:nth-child(2) { opacity: 0; }
+  .site-header.open .nav-toggle span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 }
