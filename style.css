@@ -55,11 +55,21 @@ main a:hover, .site-footer a:hover { border-bottom-color: var(--ink); }
 .site-title {
   font-family: "Manrope", Helvetica, Arial, sans-serif;
   font-weight: 600;
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin: 0;
 }
 
-.site-title .title-full { display: none; }   /* full name shows on mobile only */
+.site-title a { color: var(--ink); text-decoration: none; }
+
+.site-kicker {
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 5px;
+}
 
 .site-nav {
   display: flex;
@@ -99,12 +109,12 @@ main a:hover, .site-footer a:hover { border-bottom-color: var(--ink); }
   padding-bottom: 12vh;
 }
 
-/* full-bleed painted band under the nav, /oil-style, name overlaid */
+/* full-bleed photo band under the header */
 .hero-banner {
-  position: relative;
   width: 100%;
   height: 54vh;
   min-height: 320px;
+  position: relative;
 }
 
 .hero-banner-img {
@@ -119,43 +129,10 @@ main a:hover, .site-footer a:hover { border-bottom-color: var(--ink); }
   filter: grayscale(100%);
 }
 
-.hero-name {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: flex-end;
-}
-
-.hero-name-inner {
-  width: 100%;
-  max-width: var(--max);
-  margin: 0 auto;
-  padding: 0 var(--pad) 36px;
-}
-
 .hero-text {
   max-width: var(--max);
   margin: 0 auto;
   padding: 56px var(--pad) 0;
-}
-
-.hero-kicker {
-  font-size: 0.78rem;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--muted);
-  margin-bottom: 22px;
-}
-
-.hero h1 {
-  font-size: clamp(2.2rem, 4.5vw, 3.4rem);
-  font-weight: 600;
-  line-height: 1.05;
-}
-
-/* name over the faded painting: ink reads cleanly */
-.hero-name h1 {
-  color: var(--ink);
 }
 
 .hero-sub {
@@ -364,13 +341,9 @@ main a:hover, .site-footer a:hover { border-bottom-color: var(--ink); }
   .portraits figure { grid-column: 1; }
   .hero { padding-bottom: 8vh; }
   .hero-banner { height: 38vh; min-height: 240px; }
-  .hero-name-inner { padding-bottom: 24px; }
   .hero-text { padding-top: 40px; }
-  /* mobile: full name in the header, no monogram, no overlay on the image */
-  .site-title .title-short { display: none; }
-  .site-title .title-full { display: inline; }
-  .site-title { font-size: 1.25rem; }
-  .hero-name { display: none; }
+  .site-title { font-size: 1.2rem; }
+  .site-kicker { font-size: 0.62rem; letter-spacing: 0.16em; }
 
   /* mobile: hamburger menu */
   .site-header { position: relative; flex-wrap: nowrap; }
