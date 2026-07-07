@@ -59,6 +59,8 @@ main a:hover, .site-footer a:hover { border-bottom-color: var(--ink); }
   letter-spacing: -0.02em;
 }
 
+.site-title .title-full { display: none; }   /* full name shows on mobile only */
+
 .site-nav {
   display: flex;
   flex-wrap: wrap;
@@ -364,6 +366,12 @@ main a:hover, .site-footer a:hover { border-bottom-color: var(--ink); }
   .hero-banner { height: 38vh; min-height: 240px; }
   .hero-name-inner { padding-bottom: 24px; }
   .hero-text { padding-top: 40px; }
+  /* mobile: full name in the header, no monogram, no overlay on the image */
+  .site-title .title-short { display: none; }
+  .site-title .title-full { display: inline; }
+  .site-title { font-size: 1.25rem; }
+  .hero-name { display: none; }
+
   /* mobile: hamburger menu */
   .site-header { position: relative; flex-wrap: nowrap; }
   .nav-toggle { display: block; }
